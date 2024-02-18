@@ -82,7 +82,6 @@ int main(int argc, char **argv) {
         }
     }
 
-    // Gather image chunks from all processes
     int *all_image = NULL;
     if (rank == 0) {
         all_image = (int *)malloc(sizeof(int) * WIDTH * HEIGHT);
@@ -91,7 +90,6 @@ int main(int argc, char **argv) {
 
     if (rank == 0) {
         int image[HEIGHT][WIDTH];
-        // Reconstruct the full image from the gathered chunks
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < chunk_size; j++) {
                 for (int k = 0; k < WIDTH; k++) {
@@ -104,5 +102,5 @@ int main(int argc, char **argv) {
     }
 
     MPI_Finalize();
-    return 0;
+    return 0;
 }
