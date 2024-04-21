@@ -6,22 +6,22 @@
 void matrix_multiply(float *matrixA, float *matrixB, float *resultMatrix, int M, int N) {
     #pragma acc parallel loop copyin(matrixA[0:M*N]) copyin(matrixB[0:K*N]) copyout(resultMatrix[0:M*K]) independent
     {
-    # pragma acc region if(accelerate)
-    {
-    # pragma acc loop independent
-    for (int i = 0; i < M; i ++)
-    {
-      # pragma acc loop independent
-      for (int j = 0; j < N ; j ++ )
-      {
-          float sum = 0;
-          for (int k = 0; k < N ; k ++ ) {
-            sum += matrixA[i * N + k] * matrixB[k * N + j];
-          }
-          resultMatrix[i * N + j] = sum ;
-      }
-    }
-    }
+        # pragma acc region if(accelerate)
+        {
+            # pragma acc loop independent
+            for (int i = 0; i < M; i ++)
+            {
+              # pragma acc loop independent
+              for (int j = 0; j < N ; j ++ )
+              {
+                  float sum = 0;
+                  for (int k = 0; k < N ; k ++ ) {
+                    sum += matrixA[i * N + k] * matrixB[k * N + j];
+                  }
+                  resultMatrix[i * N + j] = sum ;
+              }
+            }
+        }
     }
 }
 
