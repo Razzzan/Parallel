@@ -15,8 +15,8 @@ __global__ void matrix_multiply(float *matrixA, float *matrixB, float *resultMat
 }
 
 int main(){
-    int num_rows = 100;
-    int num_columns = 50;
+    int num_rows = 200;
+    int num_columns = 100;
     float *host_matrixA, *host_matrixB, *host_resultMatrix;
     float *device_matrixA, *device_matrixB, *device_resultMatrix;
 
