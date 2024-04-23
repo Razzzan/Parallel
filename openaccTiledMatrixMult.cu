@@ -34,8 +34,8 @@ double getElapsedTime(struct timeval start, struct timeval stop) {
 }
 
 int main() {
-    int M = 500;
-    int N = 250;
+    int M = 200;
+    int N = 100;
     float *host_matrixA, *host_matrixB, *host_resultMatrix;
 
     // Allocate memory for host matrices
